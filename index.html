@@ -96,6 +96,8 @@ color:#E5E5E5;
 <model-viewer
 id="viewer"
 src="cheese6.glb"
+poster="cheese.png"
+reveal="interaction"
 ar
 ar-modes="scene-viewer webxr quick-look"
 ar-placement="floor"
@@ -147,17 +149,25 @@ const descriptions=[
 "A soft vanilla pastry layered with smooth strawberry cream"
 ]
 
-const viewer=document.getElementById("viewer")
+const posters=[
+"cheese.png",
+"choco.png",
+"redvelvet.png",
+"vanilla.png"
+]
 
+const viewer=document.getElementById("viewer")
 function updateItem(){
 
 viewer.src=models[current]
+viewer.poster=posters[current]
 
 document.getElementById("name").innerText=names[current]
-
 document.getElementById("desc").innerText=descriptions[current]
 
 }
+  
+
 
 function nextItem(){
 
