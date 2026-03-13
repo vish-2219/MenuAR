@@ -12,7 +12,7 @@ src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 body{
 margin:0;
 font-family:Arial, sans-serif;
-background:#14213D;
+background:white;
 overflow:hidden;
 color:white;
 }
@@ -43,22 +43,22 @@ height:40px;
 /* dropdown */
 
 .dessertDropdown{
-background:transparent;
+background:white;
 border:none;
-font-size:16px;
+border-radius:6px;
+padding:6px 10px;
+font-size:15px;
 font-weight:600;
-color:#333;
-outline:none;
 cursor:pointer;
 }
-
+  
 /* 3D viewer */
 
 model-viewer{
 width:100%;
 height:75vh;
 margin-top:70px;
-background:#14213D;
+background:white;
 }
 
 /* logo */
@@ -95,14 +95,27 @@ margin-bottom:10px;
 }
 
 button{
-background:black;
+background:#111;
 color:white;
+border-radius:6px;
 border:none;
 width:38px;
 height:38px;
 font-size:18px;
 cursor:pointer;
 }
+
+const dropdown = document.querySelector(".dessertDropdown")
+
+dropdown.addEventListener("change", function(){
+
+current = this.selectedIndex - 1
+
+if(current >= 0){
+updateItem()
+}
+
+})
 
 /* item name */
 
@@ -118,7 +131,7 @@ margin-top:8px;
 font-size:22px;
 font-weight:700;
 line-height:1.4;
-color:#E5E5E5;
+color:black;
 }
 
 </style>
@@ -144,7 +157,7 @@ color:#E5E5E5;
 <model-viewer
 id="viewer"
 src="cheese6.glb"
-poster="ab.png"
+poster="cheese.png"
 reveal="interaction"
 ar
 ar-modes="scene-viewer webxr quick-look"
@@ -202,11 +215,11 @@ const descriptions=[
 ]
 
 const posters=[
-"ab.png",
-"cb.png",
-"rb.png",
-"vb.png",
-"rain.png"
+"cheese.png",
+"choco.png",
+"redvelvet.png",
+"vanilla.png",
+"rainbow.png"
 ]
 
 const viewer=document.getElementById("viewer")
